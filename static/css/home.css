@@ -1,0 +1,42 @@
+.posts-container {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.post h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.post p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.post small {
+    color: #999;
+}
+
+.no-posts {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+    width: 100%;
+}

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/authentication.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div>
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+            </div>
+            <div>
+                <label for="id_password">Password:</label>
+                {{ form.password }}
+            </div>
+            <div>
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </form>
+
+        {% if errors %}
+            <div class="error-messages">
+                <p>{{ errors }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>

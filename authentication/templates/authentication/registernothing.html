@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'authentication/authentication.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" id="id_username" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                <input type="email" name="email" id="id_email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" id="id_password1" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="id_password2">Confirm Password:</label>
+                <input type="password" name="password2" id="id_password2" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+        <form action="{% url 'login' %}" method="get">
+            <button type="submit" class="btn btn-secondary">Already have an account? Login</button>
+        </form>
+
+        {% if errors %}
+            <div class="error-messages">
+                <ul>
+                    {% for _, error_list in errors.items %}
+                        <li> {{ error_list|join:", " }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

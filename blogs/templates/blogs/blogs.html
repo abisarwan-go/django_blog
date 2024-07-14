@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Blogs</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <a href={% url 'submitPost' %}>Submit a new post </a>
+    {% for post in posts %}
+        <li>
+            <h3>{{ post.title }}</h3>
+            <P> {{ post.content }}</P>
+            <small>Posted on {{ post.date_posted }}</small>
+        </li>
+    {% empty %}
+        <p>You haven't post any yet</p>
+    {% endfor %}
+
+
+
+</body>
+</html>

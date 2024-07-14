@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Blogs</title>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+    <h1>Create a New Blog Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title }}
+        </div>
+        <div>
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+        <div>
+            {{ form.non_field_errors }}
+            {{ form.title.errors }}
+            {{ form.content.errors }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
