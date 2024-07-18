@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Register</title>
+    <title>Auth</title>
     <link rel="stylesheet" href="{% static 'authentication/authentication.css' %}">
 </head>
 <body>
@@ -63,6 +63,7 @@
         {% endif %}
     </div>
 
+    {% include 'footer.html' %}
     <script>
         function showForm(formId) {
             document.getElementById('login-form').classList.remove('active');

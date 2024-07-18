@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh; /* Minimum height to ensure it takes up the full viewport */
+    margin: 0;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+}
+
+.post {
+    max-width: 900px; /* Maximum width of the post */
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(153, 171, 253, 0.8);
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.post small, .post a {
+    display: block;
+    font-size: smaller;
+}

@@ -3,22 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Submit Blogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
     <link rel="stylesheet" href="{% static 'blogs/editPost.css' %}">
 </head>
 <body>
-
     {% include 'header.html' %}
 
-    <h3>Create a New Blog Post</h3>
     <div class="container">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Submit</button>
+            <button type="submit">Save changes</button>
         </form>
     </div>
 
-    {% include 'footer.html' %}
+    <footer>
+        <p>&copy; 2024 Django Blog. All rights reserved.</p>
+    </footer>
 </body>
 </html>

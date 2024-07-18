@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import home
+from .views import home, custom_forbidden_view
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("blogs/", include("blogs.urls")),
-
     path("authentication/", include("authentication.urls")),
     path("", home, name="home"),
-
 ]
+
+handler403 = custom_forbidden_view

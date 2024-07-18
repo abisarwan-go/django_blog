@@ -10,7 +10,7 @@
 <body>
     {% include 'header.html' %}
     <div class="container">
-        <h2>Welcome to Our Django Blog</h2>
+        <h2>Welcome to Django Blog</h2>
         <a href="{% url 'blog' %}">
             <h1>Your Blogs</h1>
         </a>
@@ -18,21 +18,17 @@
 
     <div class="posts-container">
         {% for post in posts %}
-            <div class="post">
-                <a href="{% url 'detailPost' post.pk %}">
-                    <h3>{{ post.title }}</h3>
-                </a> 
+            <div class="post" data-url="{% url 'detailPost' post.pk %}">
+                <h3>{{ post.title }}</h3>
                 <p>{{ post.content }}</p>
-                <p>Author: {{ post.user.username }}</p>
-                <small>Posted on {{ post.date_posted }}</small>
+                <small>Posted on {{ post.date_posted }} by {{ post.user.username }}</small>
             </div>
         {% empty %}
-            <p class="no-posts">You haven't posted any yet</p>
+            <p class="no-posts">There is post yet :')</p>
         {% endfor %}
     </div>
 
-    <footer>
-        <p>&copy; 2024 Django Blog. All rights reserved.</p>
-    </footer>
+    {% include 'footer.html' %}
+     <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>
